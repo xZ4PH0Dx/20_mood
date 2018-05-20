@@ -1,6 +1,6 @@
 # Site for the Mood
 
-[TODO. There will be project description]
+You can improve your mood at [project web site](https://xz4ph0dx.github.io/20_mood/).
 
 # Project Goals
 
