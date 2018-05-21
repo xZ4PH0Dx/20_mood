@@ -46,7 +46,7 @@
         "phrase": "Если все расходы на свадьбу теща берет на себя, значит ее дочка не подарок."
       },
       {
-        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
+        "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c\\Мы открылись\u003e'?"
       },
       {
         "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
@@ -54,11 +54,34 @@
     ]
   </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+  body{
+    background-color: seagreen;
+  }
+  .well{
+    background-color: greenyellow;
+  }
+  .text-center{
+
+  }
+</style>
 </head>
 <body>
-<h2 class="text-center well">Шутка года:</h2>
-<div class="text-center well" id="quoteSpace"></div>
-<script src="script.js"></script>
-<button type="button" onclick="getNewQuote()" class="btn btn-info center-block">Получить новую шутку!</button>
+<h2 class="text-center h1 well well-lg">Шутка года:</h2>
+<div class="text-center well well-lg" id="quoteSpace"></div>
+<script>
+  function showNewQuote(){
+    var quotes = JSON.parse(document.getElementById('quotes_json').innerHTML);
+    var quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quoteSpace").innerHTML = quote.phrase;
+      if (quote.signature){
+        var signature = document.createElement('p');
+        document.getElementById("quoteSpace").appendChild(signature);
+        signature.innerHTML = quote.signature;
+      }
+  }
+showNewQuote()
+</script>
+<button type="button" onclick="showNewQuote()" class="btn btn-info center-block">Показать новую шутку!</button>
 </body>
 </html>
